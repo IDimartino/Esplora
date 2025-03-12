@@ -1,14 +1,11 @@
-This is a Kotlin Multiplatform project targeting Android, iOS, Desktop.
+# Esplora Demo App
 
-* `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - `commonMain` is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    `iosMain` would be the right folder for such calls.
+This project is a demo application built for the Blockstream Esplora API on the testnet network. 
+It showcases how to display the total available balance (Confirmed), transaction history, and real-time updates of new transactions for a list of hardcoded addresses.
 
-* `/iosApp` contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform, 
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
-
-
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+## Features
+- Display total balance (in BTC) calculated from confirmed transactions.
+- List transactions for each address with periodic refresh and pull to refresh.
+- Implemented using Kotlin, Compose Multiplatform, Koin, and Ktor.
+- MVVM, Clean Architecture.
+- Supports iOS and Desktop targets.
