@@ -14,6 +14,7 @@ import kotlinx.serialization.json.Json
 fun createHttpClient(
     engine: HttpClientEngine
 ): HttpClient {
+    // TODO: ADD Certificate pinning for Android, Ios, Desktop
     return HttpClient(engine) {
         install(Logging) {
             level = LogLevel.ALL
