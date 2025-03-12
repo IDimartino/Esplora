@@ -42,6 +42,7 @@ fun WalletScreen(
     val state = viewModel.state.collectAsStateWithLifecycle()
     val stateRefresh = rememberPullToRefreshState()
 
+    // TODO: Improve UI, separate transactions by status, Add unconfirmed Balance
     Column(
         modifier = Modifier
             .fillMaxSize()
