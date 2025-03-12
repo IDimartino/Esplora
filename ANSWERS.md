@@ -10,19 +10,21 @@
 2. A transaction could transition from the unconfirmed to the confirmed state. What strategy
    could be used to reduce the number of calls or the data exchanges with the esplora api?
 - Cache transactions locally and fetch only new transactions using the `last_seen_txid` parameter for pagination.
-- Periodically check the status of unconfirmed transactions.
+- Periodically polling the transactions by checking the status of unconfirmed transactions.
 - Using /address/:address/txs/mempool
-- Using websockets if possible
+- Using Websockets if possible
 
 3. A bitcoin address is a sensitive information that should remain private. Being able to
    associate it with a specific device should be avoided. Which strategy do you suggest to keep
    the address list safe?
 - Encrypt the address list using platform-specific secure storage (Android Keystore, iOS Keychain).
 - Avoid plain-text storage.
+- Use a HD wallet
 
 4. What could be used in place of an address list?
 - Fetch addresses from a secure server using a wallet identifier.
 - Use an extended public key (xpub) to derive addresses dynamically.
+- Use a HD wallet
 
 5. How do you suggest to mitigate man-in-the-middle attacks? (compatible with the esplora
    api documentation)
