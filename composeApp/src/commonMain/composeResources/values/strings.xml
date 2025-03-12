@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Esplora</string>
+
+    <string name="wallet_screen_total_balance">Total Balance</string>
+    <string name="wallet_screen_satoshis">BTC</string>
+    <string name="wallet_screen_address_title">Address:</string>
+    <string name="wallet_screen_address_number_tx">Number of transactions:</string>
+    <string name="wallet_screen_address_tx">Tx:</string>
+    <string name="wallet_screen_address_tx_confirmed">Confirmed</string>
+    <string name="wallet_screen_address_tx_unconfirmed">Unconfirmed</string>
+</resources>
