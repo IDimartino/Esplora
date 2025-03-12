@@ -21,7 +21,7 @@ class RemoteEsploraDataSource(
     private val httpClient: HttpClient
 ) : EsploraDataSource {
     override suspend fun getAddress(address: String): Result<List<Address>, NetworkError> {
-        TODO("Not yet implemented")
+        TODO("Implement mempool")
     }
 
     override suspend fun getUtxos(address: String): Result<List<Utxo>, NetworkError> {
