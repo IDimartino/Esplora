@@ -17,17 +17,17 @@ data class Vin(
 
 @Serializable
 data class Vout(
-    val scriptpubkey_address: String,
+    val scriptpubkeyAddress: String,
     val value: Long
 )
 
 @Serializable
 data class Prevout(
-    val scriptpubkey_address: String
+    val scriptpubkeyAddress: String
 )
 
 @Serializable
 data class Status(
     val confirmed: Boolean,
-    val block_height: Int? = null
+    val blockHeight: Int? = null
 )
