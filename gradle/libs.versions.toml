@@ -18,6 +18,9 @@ koinComposeMultiplatform = "1.2.0-Beta4"
 kotlin-coroutines = "1.10.1"
 buildkonfig = "0.15.2"
 napier = "2.7.1"
+assertk = "0.28.1"
+coreKtx = "1.6.1"
+composeTest = "1.6.8"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -32,6 +35,10 @@ androidx-lifecycle-runtime-compose = { group = "org.jetbrains.androidx.lifecycle
 kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
 napier = { module = "io.github.aakira:napier", version.ref = "napier" }
+assertk = { module = "com.willowtreeapps.assertk:assertk", version.ref = "assertk" }
+compose-ui-test-junit4-android = { module = "androidx.compose.ui:ui-test-junit4-android", version.ref = "composeTest" }
+compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "composeTest" }
+core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "coreKtx" }
 
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
