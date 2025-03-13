@@ -46,13 +46,9 @@ class WalletViewModel(
             SharingStarted.WhileSubscribed(0L),
             AddressListState(
                 isLoading = true,
-                addresses = addressBook.map { address ->
-                    Address(id = address, 0, listOf())
-                }
+                addresses = addresses
             )
         )
-
-    private val _addressDataList = MutableStateFlow<List<Address>>(emptyList())
 
     // Refresh the datas every 30 seconds
     private fun tickerFlow(pollInterval: Long): Flow<Unit> = flow {
@@ -89,6 +85,7 @@ class WalletViewModel(
     private suspend fun fetchAllData() {
         val results = mutableListOf<Address>()
         val mutex = Mutex()
+        val addressDataList = MutableStateFlow<List<Address>>(emptyList())
 
         coroutineScope {
             addresses.forEach { address ->
@@ -100,15 +97,13 @@ class WalletViewModel(
                 }
             }
         }
-        _addressDataList.value = results.sortedByDescending { it.transactions.size }
+        addressDataList.value = results.sortedByDescending { it.transactions.size }
 
         _state.update {
             state.value.copy(
                 isLoading = false,
-                balance = _addressDataList.value.sumOf {
-                    it.balance
-                } / SATOSHI_TO_BTC,
-                addresses = _addressDataList.value
+                balance = calculateTotalBalance(addressDataList),
+                addresses = addressDataList.value
             )
         }
     }
@@ -142,5 +137,12 @@ class WalletViewModel(
             balance = balanceAdress.value,
             transactions = transactionsAddress
         )
+    }
+
+    // Calculates total confirmed balance
+    private fun calculateTotalBalance(addressList: MutableStateFlow<List<Address>>): Double {
+        return addressList.value.sumOf {
+            it.balance
+        } / SATOSHI_TO_BTC
     }
 }
